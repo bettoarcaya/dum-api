@@ -2,9 +2,15 @@ const five = require('johnny-five');
 const express = require('express');
 const cors = require('cors');
 const board = new five.Board();
+const socketIO = require('socket.io');
+const http = require('http');
+const port = 3000;
 
 board.on('ready', () => {
     const app = express();
+    let server = http.createServer(app); 
+    let io = socketIO(server);
+
     app.use(cors());
 
     let analogInput = new five.Pin({
@@ -24,9 +30,10 @@ board.on('ready', () => {
         if( value == 0 ){
             vccPin.high();
         }
-        console.log(value);
+        console.log(error);
     });
 
     app.get('/', (req, res) => res.send('Ready!'));
     app.listen(8080, () => console.log('Server on: localhost:8080'));
+    server.listen(port);
 });
