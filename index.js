@@ -23,6 +23,20 @@ board.on('ready', () => {
 
     vccPin.high();
 
+    // make connection with user from server side 
+    io.on('connection', (socket)=>{ 
+        console.log('New connection'); 
+        //emit message from server to user 
+        socket.emit('newMessage', { 
+            msg: 'random message' 
+        }); 
+        
+        // when server disconnects from user 
+        socket.on('disconnect', ()=>{ 
+        console.log('disconnected from user'); 
+        }); 
+    }); 
+
     analogInput.read(function(error, value){
         if(value == 1023){
             vccPin.low();
@@ -30,8 +44,9 @@ board.on('ready', () => {
         if( value == 0 ){
             vccPin.high();
         }
-        console.log(error);
+        console.log(value);
     });
+    
 
     app.get('/', (req, res) => res.send('Ready!'));
     app.listen(8080, () => console.log('Server on: localhost:8080'));
