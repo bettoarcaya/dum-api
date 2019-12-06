@@ -27,9 +27,11 @@ board.on('ready', () => {
     io.on('connection', (socket)=>{ 
         console.log('New connection'); 
         //emit message from server to user 
-        socket.emit('newMessage', { 
-            msg: 'random message' 
-        }); 
+        setInterval(function(){
+            socket.emit('newMessage', { 
+                msg: 'random message' 
+            }); 
+        }, 100);
         
         // when server disconnects from user 
         socket.on('disconnect', ()=>{ 
@@ -37,14 +39,13 @@ board.on('ready', () => {
         }); 
     }); 
 
-    analogInput.read(function(error, value){
+    inputInfo = analogInput.read(function(error, value){
         if(value == 1023){
             vccPin.low();
         }
         if( value == 0 ){
             vccPin.high();
         }
-        console.log(value);
     });
     
 
