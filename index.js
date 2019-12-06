@@ -23,19 +23,19 @@ board.on('ready', () => {
 
     vccPin.high();
 
-    // make connection with user from server side 
+    // crea conexion entre el servidor y el cliente... 
     io.on('connection', (socket)=>{ 
         console.log('New connection'); 
-        //emit message from server to user 
+        //emitiendo mensaje al cliente cada 1 segundo...
         setInterval(function(){
             socket.emit('newMessage', { 
                 msg: 'random message' 
             }); 
-        }, 100);
+        }, 1000);
         
-        // when server disconnects from user 
+        // desconexion del cliente 
         socket.on('disconnect', ()=>{ 
-        console.log('disconnected from user'); 
+            console.log('disconnected from user'); 
         }); 
     }); 
 
@@ -49,7 +49,11 @@ board.on('ready', () => {
     });
     
 
-    app.get('/', (req, res) => res.send('Ready!'));
-    app.listen(8080, () => console.log('Server on: localhost:8080'));
-    server.listen(port);
+    app.get('/test', (req, res) => {
+        //res.send('Ready!');
+        res.sendFile(__dirname + '/index.html');
+    });
+    server.listen(3000, () => {
+        console.log('Server on: localhost:3000')
+    });
 });
