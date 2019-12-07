@@ -64,7 +64,7 @@ board.on('ready', () => {
         res.sendFile(__dirname + '/index.html');
     });
 
-    //endpoit para la salida.
+    //endpoint para la salida.
     app.get('/salida', (req, res) => {
         // crea conexion entre el servidor y el cliente... 
         io.on('connection', (socket)=>{ 
