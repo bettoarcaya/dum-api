@@ -1,34 +1,78 @@
-<main [class]='theme'>
-    <ngx-charts-line-chart
-        style="position: static; display: inline-block; transform: none;"
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 class="card-header bg-info">
+      Welcome to {{ title }}!
+    </h1>
+    <h3 class="text-secondary">
+      PEV Selling Countries
+    </h3>
+    <div class="row ml-5">
+      <div class="col">
+          <div class="row">
+            <h4>
+              Vertical Bar Chart
+            </h4>
+          </div>
+          <div class="row">
+                <ngx-charts-bar-vertical
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="single"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)">
+                </ngx-charts-bar-vertical>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <h4>
+              Vertical Bar Chart Normalized
+            </h4>
+          </div>
+          <div class="row">
+            <ngx-charts-bar-vertical-normalized
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="multi"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)">
+            </ngx-charts-bar-vertical-normalized>
+          </div>
+        </div>
+      </div>
+      <div class="row ml-5">
+        <h4>
+          Stacked Vertical Bar Chart
+        </h4>
+      </div>
+      <div class="form-group row ml-5">
+        <ngx-charts-bar-vertical-stacked
         [view]="view"
-        class="chart-container"
         [scheme]="colorScheme"
-        [schemeType]="schemeType"
-        [results]="plotData"
-        [animations]="animations"
-        [legend]="false"
-        [legendTitle]="legendTitle"
-        [legendPosition]="legendPosition"
-        (legendLabelClick)="onLegendLabelClick($event)"
+        [results]="multi"
         [gradient]="gradient"
         [xAxis]="showXAxis"
         [yAxis]="showYAxis"
-        [showXAxisLabel]="false"
-        [showYAxisLabel]="false"
-        [xAxisLabel]="'angle'"
-        [yAxisLabel]="'radius'"
-        [autoScale]="autoScale"
-        [timeline]="timeline"
-        [showGridLines]="showGridLines"
-        [curve]="curves['Cardinal']"
-        [rangeFillOpacity]="rangeFillOpacity"
-        [roundDomains]="roundDomains"
-        [tooltipDisabled]="tooltipDisabled"
-        [trimXAxisTicks]="trimXAxisTicks"
-        [trimYAxisTicks]="trimYAxisTicks"
-        [maxXAxisTickLength]="maxXAxisTickLength"
-        [maxYAxisTickLength]="maxYAxisTickLength"
-        (select)="select($event)">
-    </ngx-charts-line-chart>
-</main>
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)">
+        </ngx-charts-bar-vertical-stacked>
+      </div>
+  </div>
