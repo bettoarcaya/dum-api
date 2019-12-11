@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<main [class]='theme'>
+    <ngx-charts-line-chart
+        style="position: static; display: inline-block; transform: none;"
+        [view]="view"
+        class="chart-container"
+        [scheme]="colorScheme"
+        [schemeType]="schemeType"
+        [results]="plotData"
+        [animations]="animations"
+        [legend]="false"
+        [legendTitle]="legendTitle"
+        [legendPosition]="legendPosition"
+        (legendLabelClick)="onLegendLabelClick($event)"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [showXAxisLabel]="false"
+        [showYAxisLabel]="false"
+        [xAxisLabel]="'angle'"
+        [yAxisLabel]="'radius'"
+        [autoScale]="autoScale"
+        [timeline]="timeline"
+        [showGridLines]="showGridLines"
+        [curve]="curves['Cardinal']"
+        [rangeFillOpacity]="rangeFillOpacity"
+        [roundDomains]="roundDomains"
+        [tooltipDisabled]="tooltipDisabled"
+        [trimXAxisTicks]="trimXAxisTicks"
+        [trimYAxisTicks]="trimYAxisTicks"
+        [maxXAxisTickLength]="maxXAxisTickLength"
+        [maxYAxisTickLength]="maxYAxisTickLength"
+        (select)="select($event)">
+    </ngx-charts-line-chart>
+</main>
