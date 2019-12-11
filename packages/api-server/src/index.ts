@@ -18,10 +18,11 @@ setInterval(() => {
 // const five = require('johnny-five');
 
 /*driver.board.on('ready', () => {
-    /*const server = new SocketServer();
+    // const server = new SocketServer();
     // server.io.on(ServerEvents.CONNECT, (socket: any) => {
     //   console.log('A client has connected');
     // });
+
     let inputInfo: number = 0;
     //entrada analogica
     let analogInput = new five.Pin({
@@ -53,4 +54,5 @@ setInterval(() => {
             output:  inputInfo
         });
     });
-});*/
+});
+*/
