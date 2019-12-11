@@ -8,7 +8,7 @@ server.io.on(ServerEvents.CONNECT, (socket: any) => {
 
 let x = 15;
 setInterval(() => {
-    x += x * 2;
+    x = x * 2;
     server.io.emit('output', {
         output: x,
     });
