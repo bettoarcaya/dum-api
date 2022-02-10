@@ -14,14 +14,3 @@ Y pues ya, es todo lo que se necesita, qué compilar ni qué nada. ¿Pa' qué? A
 - `test` pero lo puse porque sí, es mentira que se escribirán tests acá.
 
 Eso es todo. 
-
-
-<sub><sup>El que lea esto es marico.</sup></sub>
-
-.
-
-.
-
-.
-
-<sub><sup>¿Vas a seguir leyendo? Ay, vale...</sup></sub>
